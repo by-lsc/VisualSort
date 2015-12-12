@@ -16,7 +16,8 @@ import com.bylsc.leetcode.btreedepth.TreeNode;
 public class Solution {
 	public static List<List<Integer>> levelOrder(TreeNode root) {
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
-		if(root == null) return result;
+		if (root == null)
+			return result;
 		List<TreeNode> list = new ArrayList<TreeNode>();
 		list.add(root);
 		int psize = 1;
@@ -39,28 +40,76 @@ public class Solution {
 				psize = csize;
 				csize = 0;
 				result.add(row);
-//				for (Integer i : row) {
-//					System.out.print(i + " ");
-//				}
-//				System.out.println();
-//				row.clear();//不要用clear方法
+				// for (Integer i : row) {
+				// System.out.print(i + " ");
+				// }
+				// System.out.println();
+				// row.clear();//不要用clear方法
 				row = new ArrayList<Integer>();
 			}
 		}
 		return result;
 	}
 
-	public static void access(TreeNode root) {
+	/**
+	 * Binary Tree Preorder Traversal 前序遍历
+	 * @link https://leetcode.com/problems/binary-tree-preorder-traversal/
+	 * @time2015年12月12日
+	 * @param root
+	 */
+
+	private static List<Integer> result = new ArrayList<Integer>();
+
+	public static List<Integer> preorderTraversal(TreeNode root) {
 		if (root != null) {
-			access(root.left);
-			System.out.println(root.val);
-			access(root.right);
+			result.add(root.val);
+			preorderTraversal(root.left);
+			preorderTraversal(root.right);
 		}
+		return result;
 	}
+	
+	
+	/**
+	 * Binary tree postorder traversal 后序遍历
+	 * @link https://leetcode.com/problems/binary-tree-postorder-traversal/
+	 * @time2015年12月12日
+	 * @param root
+	 */
+
+	private static List<Integer> result1 = new ArrayList<Integer>();
+
+	public static List<Integer> postorderTraversal(TreeNode root) {
+		if (root != null) {
+			postorderTraversal(root.left);
+			postorderTraversal(root.right);
+			result1.add(root.val);
+		}
+		return result1;
+	}
+	
+	
+	/**
+	 * Binary Tree Inorder Traversal 中序遍历
+	 * @link https://leetcode.com/problems/binary-tree-inorder-traversal/
+	 * @time2015年12月12日
+	 * @param root
+	 */
+
+
+	private static  List<Integer> result3 = new ArrayList<Integer>();
+	public static List<Integer> inorderTraversal(TreeNode root) {
+		if (root != null) {
+			inorderTraversal(root.left);
+			result3.add(root.val);
+			inorderTraversal(root.right);
+		}
+		return result3;
+	}
+	
 
 	public static void main(String[] args) {
-		
-		
+
 		// List<TreeNode> list = new ArrayList<TreeNode>();
 		// System.out.println(list.get(0));
 		TreeNode node1 = new TreeNode(1);
@@ -81,24 +130,35 @@ public class Solution {
 		node6.left = node9;
 		node4.left = node7;
 		node4.right = node8;
-		access(node1);
-		System.out.println("---------------------------------");
-		
+		System.out.println("前序遍历---------------------------------");
+		List<Integer> r1 = preorderTraversal(node1);
+		for (Integer e : r1) {
+			System.out.print(e + "  ");
+		}
+		System.out.println("\n后序遍历---------------------------------");
+		List<Integer> r2 = postorderTraversal(node1);
+		for (Integer e : r2) {
+			System.out.print(e + "  ");
+		}
+		System.out.println("\n中序遍历---------------------------------");
+		List<Integer> r3 = inorderTraversal(node1);
+		for (Integer e : r3) {
+			System.out.print(e + "  ");
+		}
+		System.out.println("\n层次遍历（广度优先）---------------------------------");
+
 		List<List<Integer>> result = levelOrder(node1);
-//		List<List<Integer>> result = new ArrayList<List<Integer>>();
-//		List<Integer> e = new ArrayList<Integer>();
-//		e.add(1);
-//		result.add(e);
-		
+		// List<List<Integer>> result = new ArrayList<List<Integer>>();
+		// List<Integer> e = new ArrayList<Integer>();
+		// e.add(1);
+		// result.add(e);
+
 		for (List<Integer> list : result) {
 			for (Integer i : list) {
 				System.out.print(i + "  ");
 			}
 			System.out.println();
 		}
-		
-		
-		
-		
+
 	}
 }
