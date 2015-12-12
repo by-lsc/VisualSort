@@ -3,7 +3,7 @@ package com.bylsc.leetcode.movezeros;
 /**
  * 
  * @author lsc
- * @create 2015Äê11ÔÂ25ÈÕ
+ * @create 2015å¹´11æœˆ25æ—¥
  * @link https://leetcode.com/problems/move-zeroes/
  */
 

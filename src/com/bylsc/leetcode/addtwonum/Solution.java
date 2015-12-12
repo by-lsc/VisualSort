@@ -18,7 +18,7 @@ public class Solution {
 	}
 
 	public static ListNode addTwoNumbersFlag(ListNode l1, ListNode l2, int n) {
-		// Ö÷ÒªÓÃÓÚ´¦Àí×îºóÒ»²½
+		// å¤„ç†æœ€åä¸€æ­¥
 
 		// if(l1 == null ) return l2;
 		// if(l2 == null ) return l1;

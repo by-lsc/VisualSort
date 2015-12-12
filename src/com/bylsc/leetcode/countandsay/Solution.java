@@ -2,7 +2,7 @@ package com.bylsc.leetcode.countandsay;
 /**
  * 
  * @author lsc
- * @create 2015Äê11ÔÂ25ÈÕ16:16:06
+ * @create 2015å¹´1æœˆ25æ—¥16:16:06
  * @link https://leetcode.com/problems/count-and-say/
  */
 
