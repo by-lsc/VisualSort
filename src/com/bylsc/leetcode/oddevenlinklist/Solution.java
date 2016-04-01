@@ -1,5 +1,10 @@
 package com.bylsc.leetcode.oddevenlinklist;
 
+/**
+ * https://leetcode.com/problems/odd-even-linked-list/
+ * @author lsc
+ *
+ */
 public class Solution {
 
 	public ListNode oddEvenList(ListNode head) {
