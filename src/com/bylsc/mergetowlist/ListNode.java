@@ -1,4 +1,4 @@
-package com.bylsc.leetcode.mergetowlist;
+package com.bylsc.mergetowlist;
 
 public class ListNode {
 	int val;
