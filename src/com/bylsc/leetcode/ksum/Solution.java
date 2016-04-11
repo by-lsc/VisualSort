@@ -14,11 +14,10 @@ import java.util.List;
 public class Solution {
 	
 	 public List<List<Integer>> threeSum(int[] nums) {
-		if (nums == null || nums.length == 0)
-			return null;
-		Arrays.sort(nums);
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
-		List<Integer> innerResult = new ArrayList<Integer>();
+		if (nums == null || nums.length == 0)
+			return result;
+		Arrays.sort(nums);
 		for (int i = 0; i < nums.length - 2; i++) {
 			if (i > 0 && nums[i] == nums[i - 1])
 				continue;// 重复的直接往下走
@@ -26,10 +25,15 @@ public class Solution {
 			int r = nums.length - 1;
 			while (l < r) {
 				if (nums[l] + nums[r] == -nums[i]) {
-					innerResult.add(i);
-					innerResult.add(l);
-					innerResult.add(r);
+					List<Integer> innerResult = new ArrayList<Integer>();
+					innerResult.add(nums[i]);
+					innerResult.add(nums[l]);
+					innerResult.add(nums[r]);
 					result.add(innerResult);
+					while (l < r && nums[l] == nums[l+1]) l++;  
+		            while (l < r && nums[r] == nums[r-1]) r--;  
+		            l++;  
+		            r--;  
 				} else if (nums[l] + nums[r] < nums[i]) {
 					l++;
 				} else {
@@ -43,7 +47,10 @@ public class Solution {
 	 public static void main(String[] args) {
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		Solution s = new Solution();
-		int nums[] = {-1,0,1,2,-1,-4};
+//		int nums[] = {-1,0,1,2,-1,-4};
+//		int nums[] = {0,0,0,0};//
+		int nums[] = {1,-1,-1,0};//
+						//[-4, -1, -1, 0, 1, 2]
 		result = s.threeSum(nums);
 		for (int i = 0; i < result.size(); i++) {
 			for (int j = 0; j < result.get(i).size(); j++) {
