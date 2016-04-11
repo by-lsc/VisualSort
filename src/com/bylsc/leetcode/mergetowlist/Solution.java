@@ -1,4 +1,4 @@
-package com.bylsc.mergetowlist;
+package com.bylsc.leetcode.mergetowlist;
 
 /**
  * https://leetcode.com/problems/merge-two-sorted-lists/
